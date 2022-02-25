@@ -10,10 +10,22 @@ import { AuthService } from '/home/abdullah/workspace/b102_lelafe_fullstack_virt
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  showFiller = false;
   authModel:Auth = {
     email:"", 
-    password:""
+    password:"",
+    roleId:"",
+   
   }
+  roles:any = [{
+    roleId: 1,
+    role: "Staff"
+  },
+  {
+    roleId: 2,
+    role: "Student"
+  }
+]
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -22,8 +34,10 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.authModel).subscribe((res:any) => {
       if (res.status === 200) {
+        console.log(this.authModel.roleId)
         this.authModel = {}
         alert(res.data)
+        
       } else {
         this.authModel = {}
         alert(res.data)

@@ -7,7 +7,12 @@ import { LoginComponent } from './auth-module/components/login/login.component';
 import { RegisterComponent } from './auth-module/components/register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio'; 
 import { HttpClientModule} from '@angular/common/http'
+import {MatCardModule} from '@angular/material/card'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatInputModule} from '@angular/material/input'; 
+import {MatFormFieldModule} from '@angular/material/form-field'; 
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { HttpClientModule} from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatRadioModule,
+    MatCardModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

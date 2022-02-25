@@ -16,4 +16,8 @@ export class AuthService {
     return this.http.post(`${this.server}/user/login`, authModel)  
   }
 
+  register(userModel:any){
+    return this.http.post(`${this.server}/user/register`, userModel)
+  }
+
 }
