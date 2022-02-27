@@ -1,20 +1,46 @@
-<div class="container">
-    <img [src]="userModel.image?userModel.image: image"  alt="photo" style="width: 80px" > <br>
-    <input type="file" (change)="change($event)" /> <br> <br>
+
+<div class="grid-container container width-small">
+    <form #form="ngForm">
+    <div class="grid-item">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" required #emailField="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.email">
+          <div *ngIf="emailField.touched && emailField.invalid" class="alert">
+            Email is required*
+        </div>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input required #keyField="ngModel" type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.password">
+        </div>
+        <div *ngIf="keyField.touched && keyField.invalid" class="alert">
+            <p>key is required*</p>
+        </div>
+        <label for="exampleInputContact1" class="form-label">Contact Number: </label>
+        <input type="text" required #numField="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.contactno">
+        <br>
+        <div class="role-container">
+            <label for="exampleInputRole1" class="form-label">Please select if you are a student or a staff</label>
+            <select name="roles" id="roles" [(ngModel)]="userModel.roleId" class="form-select" aria-label="Default select example">
+                <option value="1">{{ roles[0].role }}</option>
+                <option value="2">{{ roles[1].role }}</option>
+            </select>
+        </div> <br>
+        <div class="center-new">
+        <button type="submit" (click)="register()" class="btn btn-primary">Sign Up</button> <br>
+        <a routerLink="/login">Have an account? Login</a> 
+        </div>
+    </div>
+</form>
+    <div class="grid-item"><img [src]="userModel.image?userModel.image: image"  alt="photo" style="width: 200px" > <br>
+        <input type="file" (change)="change($event)" /> 
+    </div>
     
-    <label>Email: </label> <input type="email" placeholder="enter your email" [(ngModel)]="userModel.email" /> <br> <br>
-    <label>Role: </label> 
-    <select name="roles" id="roles" [(ngModel)]="userModel.roleId" >
-        <option value="1">{{ roles[0].role }}</option>
-        <option value="2">{{ roles[1].role }}</option>
-    </select> <br>
-
-    <label>Contact Number: </label> <input type="text" placeholder="Please enter your contach number" [(ngModel)]="userModel.contactno" /> <br>
-    <label>Password: </label> <input type="password" placeholder="Please enter your password" [(ngModel)]="userModel.password"> <br>
-    <label>Confirm Password: </label> <input type="password" placeholder="Please enter your password again"> <br>
-    <button (click)="register()">Register</button> <br> <br>
-    <a routerLink="/login">Already have an account</a>
-</div>
+  </div>
+  
 
 
 
+
+    

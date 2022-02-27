@@ -1,0 +1,22 @@
+.width-small{
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+ 
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    
+  }
+  
+  .grid-item {
+    margin-top: auto;
+    
+    margin-bottom: auto;
+    //border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 40px;
+  }
