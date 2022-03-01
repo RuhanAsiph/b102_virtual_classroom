@@ -10,7 +10,7 @@ import { AuthService } from '/home/abdullah/workspace/b102_lelafe_fullstack_virt
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, AfterViewInit{
+export class LoginComponent implements OnInit{
   
   authModel:Auth = {
     email:"", 
@@ -28,11 +28,8 @@ export class LoginComponent implements OnInit, AfterViewInit{
   }
 ]
   
-  @ViewChild('form')detail!: ElementRef;
-  ngAfterViewInit() {
-    // this.detail.nativeElement.style.color="red"
-   }
-
+  
+ 
   constructor(private authService: AuthService) { }
   
 

@@ -1,21 +1,38 @@
-
+<!-- ngNativeValidate -->
 <div class="grid-container container width-small">
-    <form #form="ngForm">
+    <form #registerForm="ngForm">
     <div class="grid-item">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" required #emailField="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.email">
-          <div *ngIf="emailField.touched && emailField.invalid" class="alert">
-            Email is required*
+          <input type="email"  name="email" required maxlength="30" minlength="4" #email="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: false}" [(ngModel)]="userModel.email" ngModel>
+         
+
+
+
+           <div *ngIf="email.invalid && (email.dirty || email.touched || registerForm.submitted )" class="alert">
+            <div *ngIf="email.errors?.['required']">
+                <div class="err-style">Name is required. </div> 
+            </div> 
+            <div *ngIf="email.errors?.['minlength']">
+                <div class="err-style">Please enter a valid email address </div> 
+            </div>
         </div>
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
+        </div> 
+
+
+
+
+
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input required #keyField="ngModel" type="password" class="form-control" id="exampleInputPassword1" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.password">
+          <input required name="password" #keyField="ngModel" type="password" class="form-control" id="exampleInputPassword1"  [ngModelOptions]="{standalone: false}" [(ngModel)]="userModel.password" ngModel>
         </div>
-        <div *ngIf="keyField.touched && keyField.invalid" class="alert">
-            <p>key is required*</p>
+        <div *ngIf="keyField.invalid && (keyField.dirty || keyField.touched || registerForm.submitted )" class="alert">
+           
+            <div *ngIf="keyField.errors?.['required']">
+                <div>Key is required</div> 
+            </div> 
         </div>
         <label for="exampleInputContact1" class="form-label">Contact Number: </label>
         <input type="text" required #numField="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}" [(ngModel)]="userModel.contactno">
@@ -28,19 +45,24 @@
             </select>
         </div> <br>
         <div class="center-new">
-        <button type="submit" (click)="register()" class="btn btn-primary">Sign Up</button> <br>
+        <button type="submit" class="btn btn-primary" (click)="register()" [disabled]="!registerForm.valid">Sign Up</button> <br>
         <a routerLink="/login">Have an account? Login</a> 
         </div>
     </div>
 </form>
     <div class="grid-item"><img [src]="userModel.image?userModel.image: image"  alt="photo" style="width: 200px" > <br>
-        <input type="file" (change)="change($event)" /> 
+        <input class="file-upload" type="file" (change)="change($event)" >
+        <div *ngIf="isExtensionError" class="text-danger">
+            Please use jpg or png
+        </div> 
+        <div class="text-danger" *ngIf="isSizeError">
+            please compress the img. image size should be less than 1mb
+        </div> 
     </div>
     
-  </div>
+    
+</div>
   
 
 
 
-
-    

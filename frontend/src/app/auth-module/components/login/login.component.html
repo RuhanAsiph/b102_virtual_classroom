@@ -1,36 +1,6 @@
-<!-- <div class="container" style="text-align: center;">
-<form #form="ngForm">
 
-    <p>Login</p>
-    <div class="input-container">
-        <input required #emailField="ngModel" minlength="5" type="email" placeholder="Please enter your email" [ngModelOptions]="{standalone: true}" [(ngModel)]="authModel.email" /> <br>
-    </div>
-    <div *ngIf="emailField.touched && emailField.invalid" class="alert">
-        <p>Email is required*</p>
-    </div>
-    
-    <div class="input-container">
-        <input required #keyField="ngModel" type="password" placeholder="Please enter your password" [ngModelOptions]="{standalone: true}" [(ngModel)]="authModel.password" /> <br>
-    </div>
-    <div *ngIf="keyField.touched && keyField.invalid" class="alert">
-        <p>key is required*</p>
-    </div>
-    <div class="role-container">
-        <h4>Login As</h4>       
-        <div *ngFor="let data of roles" >  
-                <label>{{data.role}}</label>
-                <input required #radioBox="ngModel" type="radio" name="role" value="{{data.roleId}}" [ngModelOptions]="{standalone: true}" [(ngModel)]="authModel.roleId"/> 
-        </div> <br>
-        
-        
-    </div>
-    <button class="login-button" (click)="login()">Login</button> <br>
-    <a routerLink="/register">Don't have an account?</a>
-
-</form>
-</div> -->
 <div class="container width-small">
-<form #form="ngForm">
+<form #loginForm="ngForm">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email address</label>
       <input type="email" required #emailField="ngModel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}" [(ngModel)]="authModel.email">
