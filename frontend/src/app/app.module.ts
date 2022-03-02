@@ -12,14 +12,18 @@ import { HttpClientModule} from '@angular/common/http'
 import {MatCardModule} from '@angular/material/card'; 
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 import {MatInputModule} from '@angular/material/input'; 
-import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { CoursesComponent } from './staff-module/courses/courses.component';
+import { CourseContentComponent } from './staff-module/course-content/course-content.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CoursesComponent,
+    CourseContentComponent
     
   ],
   imports: [

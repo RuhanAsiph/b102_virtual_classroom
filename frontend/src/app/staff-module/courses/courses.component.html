@@ -1,0 +1,26 @@
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Course</th>
+        <th scope="col">Teacher</th>
+        <th scope="col">Level</th>
+        <th scope="col">Description</th>
+        <th scope="col">Stars</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of courses">
+        <td>{{ course._id }}</td>
+        <td>{{ course.name }}</td>
+        <td>{{ course.teacher }}</td>
+        <td>{{ course.level }}</td>
+        <td>{{ course.description }}</td>
+        <td>{{ course.stars }}</td>
+        <td><button (click)="content(course._id)">Course Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

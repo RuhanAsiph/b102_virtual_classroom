@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Auth } from '../../models/authModel';
 
 //fix
-import { AuthService } from '/home/abdullah/workspace/b102_lelafe_fullstack_virtual_classroom/frontend/src/app/auth-module/auth.service'
+import { AuthService } from '../../../auth.service'
 
 @Component({
   selector: 'app-login',
