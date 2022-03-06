@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth-module/components/login/login.component';
@@ -15,7 +15,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { CoursesComponent } from './staff-module/courses/courses.component';
 import { CourseContentComponent } from './staff-module/course-content/course-content.component'; 
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { MaterialuploadDialogComponent } from './staff-module/materialupload-dialog/materialupload-dialog.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +24,12 @@ import { CourseContentComponent } from './staff-module/course-content/course-con
     RegisterComponent,
     NavbarComponent,
     CoursesComponent,
-    CourseContentComponent
+    CourseContentComponent,
+    MaterialuploadDialogComponent,
+    
     
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,8 +39,11 @@ import { CourseContentComponent } from './staff-module/course-content/course-con
     MatCardModule,
     MatInputModule,
     MatSidenavModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
+  entryComponents: [MaterialuploadDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

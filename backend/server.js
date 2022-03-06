@@ -11,8 +11,9 @@ const staffRouter = require('./routes/staffRouter')
 
 //local db connection
 mongoose.connect('mongodb://0.0.0.0:27017/userDB', { useNewUrlParser: true, useUnifiedTopology: true }) .then(() => console.log('connection created successful')) .catch((err) => console.error(err)); 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.urlencoded({ extended: true, limit: '50mb'}));
+app.use(express.json({limit: '50mb'}))
+
 
 //routes
 //user route

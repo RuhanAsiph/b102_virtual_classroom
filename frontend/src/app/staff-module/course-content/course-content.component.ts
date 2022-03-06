@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MaterialuploadDialogComponent } from '../materialupload-dialog/materialupload-dialog.component';
 @Component({
   selector: 'app-course-content',
   templateUrl: './course-content.component.html',
@@ -10,8 +11,9 @@ import { AuthService } from 'src/app/auth.service';
 export class CourseContentComponent implements OnInit {
   courseDetail: any = []
   courseId: any;
-  constructor(private authService: AuthService, private router:Router, private activatedRoute:ActivatedRoute) { 
+  constructor(public dialog:MatDialog, private authService: AuthService, private router:Router, private activatedRoute:ActivatedRoute) { 
     this.courseId = this.activatedRoute.snapshot.queryParamMap.get("id")
+    
   }
 
   ngOnInit(): void {
@@ -26,4 +28,11 @@ export class CourseContentComponent implements OnInit {
     })
   }
 
+  materialDialog(content: any) {
+    //send the data to dialog
+    const dialogRef = this.dialog.open(MaterialuploadDialogComponent, {
+      width: "750px",
+      data: content
+    });
+  }
 }

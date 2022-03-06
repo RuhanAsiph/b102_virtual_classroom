@@ -1,0 +1,47 @@
+<div>
+
+
+<h2 mat-dialog-title>Upload Materials And Instructor Name</h2>
+
+<mat-dialog-content>
+    <div class="container">
+        <form> 
+            <label class="form-label">Lecture</label>
+            <input type="text" class="form-control" disabled value="{{data.lecture}}" [ngModelOptions]="{ standalone: true}" [(ngModel)]="materialModel.lecture" /> <br>
+            <label class="form-label">Description</label>
+            <input type="text" disabled class="form-control" value="{{data.description}}" [ngModelOptions]="{ standalone: true}" [(ngModel)]="materialModel.description" /> <br> 
+            <label class="form-label">Course Code: </label>
+            <input type="text" disabled value="{{data.courseCode}}" [ngModelOptions]="{ standalone: true}" [(ngModel)]="materialModel.courseCode" /> <br> <br>
+            <label class="form-label">Enter instructors name: </label>
+            <input type="text" class="form-control" name="instructorName" placeholder="enter instructor name" [(ngModel)]="materialModel.contentMaterial[1]"> <br>
+            <p class="black-back">upload doc <i class="fa fa-file-pdf-o" style="font-size:32px;color:red"></i></p>
+            <input type="file" (change)="uploadPdf($event)"> <br> 
+            <div *ngIf="isExtensionError" class="text-danger">
+                Please use pdf
+            </div> 
+            <div class="text-danger" *ngIf="isSizeError">
+                please compress the pdf or use a pdf file. pdf size should be less than or 3mb
+            </div>
+            <br>
+             
+            
+        </form>
+        </div> <br>
+        <div class="container" *ngIf="showDocs">
+            <p>{{ fetchDocs[1] }} </p>
+        </div>
+        <div class="container" *ngIf="showMaterialUploaded">
+            <p>{{ materialName }} <i class="fa fa-close" (click)="remove()" style="font-size:24px;color:red"></i><br> {{ materialModel.contentMaterial[1] }}</p>
+    </div>
+    
+    
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="center-btn">
+    <button class="btn btn-danger" (click)="closeDialog()">Cancel</button>
+    <button class="btn btn-primary" (click)="sendPdfLogic()" >Save</button> 
+    <button class="btn"(click)="removePdf(data._id)" >Remove Materials</button>
+    </div>
+</mat-dialog-actions>
+
+</div>

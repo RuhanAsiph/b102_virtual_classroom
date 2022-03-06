@@ -4,7 +4,8 @@ const contentSchema = new mongoose.Schema({
     courseId: String,
     lecture: String,
     description: String,
-    courseCode: String
+    courseCode: String, 
+    contentMaterial: Array
 })
 
 module.exports = mongoose.model('contents', contentSchema)

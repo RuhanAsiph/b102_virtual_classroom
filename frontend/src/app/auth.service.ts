@@ -27,4 +27,16 @@ export class AuthService {
   getContent(id:any) {
     return this.http.get(`${this.server}/staff/get-content/${id}`)
   }
+
+  sendMaterial(materialModel:any) {
+    return this.http.put(`${this.server}/staff/upload-material`, materialModel)
+  }
+
+  fetchDoc(id: any){
+    return this.http.get(`${this.server}/staff/fetch-doc/${id}`)
+  }
+  
+  deleteDoc(dummyModel: any, id: any) {
+    return this.http.put(`${this.server}/staff/delete-doc/${id}`, dummyModel)
+  }
 }
