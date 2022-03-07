@@ -8,5 +8,6 @@ router.post('/post-course', staffController.sendCourse);
 router.put('/upload-material', staffController.sendMaterial);
 router.get('/fetch-doc/:id', staffController.fetchDoc);
 router.put(`/delete-doc/:id`, staffController.deleteDoc);
+router.put('/upload-materials', staffController.sendMaterials);
 
 module.exports = router;

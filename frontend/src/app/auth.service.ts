@@ -39,4 +39,9 @@ export class AuthService {
   deleteDoc(dummyModel: any, id: any) {
     return this.http.put(`${this.server}/staff/delete-doc/${id}`, dummyModel)
   }
+
+
+  sendMaterials(materialModel: any) {
+    return this.http.put(`${this.server}/staff/upload-materials`, materialModel)
+  }
 }

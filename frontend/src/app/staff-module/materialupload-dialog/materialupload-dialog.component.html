@@ -1,7 +1,7 @@
 <div>
 
 
-<h2 mat-dialog-title>Upload Materials And Instructor Name</h2>
+<h2 mat-dialog-title>Upload Main Syllabus And Instructor Name</h2>
 
 <mat-dialog-content>
     <div class="container">
@@ -15,7 +15,10 @@
             <label class="form-label">Enter instructors name: </label>
             <input type="text" class="form-control" name="instructorName" placeholder="enter instructor name" [(ngModel)]="materialModel.contentMaterial[1]"> <br>
             <p class="black-back">upload doc <i class="fa fa-file-pdf-o" style="font-size:32px;color:red"></i></p>
-            <input type="file" (change)="uploadPdf($event)"> <br> 
+            <input type="file" (change)="uploadPdf($event)"> <br> <br>
+
+            
+
             <div *ngIf="isExtensionError" class="text-danger">
                 Please use pdf
             </div> 
@@ -23,7 +26,7 @@
                 please compress the pdf or use a pdf file. pdf size should be less than or 3mb
             </div>
             <br>
-             
+            <button (click)="additionalDialog(data)"> Add additional course documents</button>  
             
         </form>
         </div> <br>
@@ -39,8 +42,8 @@
 <mat-dialog-actions>
     <div class="center-btn">
     <button class="btn btn-danger" (click)="closeDialog()">Cancel</button>
-    <button class="btn btn-primary" (click)="sendPdfLogic()" >Save</button> 
-    <button class="btn"(click)="removePdf(data._id)" >Remove Materials</button>
+    <button *ngIf="saveButton" class="btn btn-primary" (click)="sendPdfLogic()" >Save</button> 
+    <button *ngIf="showRemoveMaterials" class="btn"(click)="removePdf(data._id)" >Remove Syllabus</button>
     </div>
 </mat-dialog-actions>
 

@@ -5,7 +5,15 @@ const contentSchema = new mongoose.Schema({
     lecture: String,
     description: String,
     courseCode: String, 
-    contentMaterial: Array
+    contentMaterial: [],
+    additionalMaterial: [
+        {
+            fileName: String, 
+            file: String,
+            instructor: String
+        }
+    ]
+    
 })
 
 module.exports = mongoose.model('contents', contentSchema)

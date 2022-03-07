@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
+import { OtherMaterialsComponent } from '../other-materials/other-materials.component';
 
 @Component({
   selector: 'app-materialupload-dialog',
@@ -19,7 +20,7 @@ export class MaterialuploadDialogComponent implements OnInit {
     contentMaterial: []
   }
   id:any;
-  constructor(private authService:AuthService, private router:Router, private activatedRoute:ActivatedRoute, public dialogRef:MatDialogRef<MaterialuploadDialogComponent>,
+  constructor(public dialog:MatDialog, private authService:AuthService, private router:Router, private activatedRoute:ActivatedRoute, public dialogRef:MatDialogRef<MaterialuploadDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data:any) { 
     // this.id = this.activatedRoute.snapshot.queryParamMap.get("id")
   }
@@ -31,6 +32,10 @@ export class MaterialuploadDialogComponent implements OnInit {
   isSizeError: boolean = false;
   fetchDocs = []
   showDocs:boolean = false
+  showRemoveMaterials:boolean = false
+  saveButton:boolean = true
+
+
   ngOnInit(): void {
     this.fetchDoc()
   }
@@ -62,7 +67,8 @@ export class MaterialuploadDialogComponent implements OnInit {
       var size = event.target.files[0].size;
       var extension = event.target.files[0].type.replace(/(.*)\//g, '');
       var sizeInMb = Math.round(size/1024);
-      if (sizeInMb >= 3024) {
+      if (sizeInMb > 3024) {
+        
         this.isSizeError = true
       } else if (extension === "pdf") {
         var reader: any = new FileReader();
@@ -90,6 +96,12 @@ export class MaterialuploadDialogComponent implements OnInit {
       if (res.status === 200) {
         this.fetchDocs = res.data
         this.showDocs = true
+        if (this.fetchDocs.length !== 0) {
+          this.showRemoveMaterials = true
+          this.saveButton = false
+        } else if (this.fetchDocs.length === 0) {
+          this.saveButton = true
+        }
       }
     })
   }
@@ -100,9 +112,18 @@ export class MaterialuploadDialogComponent implements OnInit {
         this.fetchDocs = res.data
         alert(res.data)
         this.showDocs = false
+        this.showRemoveMaterials = false
+        this.saveButton = true
       } else {
         alert(res.data)
       }
     })
+  }
+
+  additionalDialog(info: any) {
+    const dialogRef = this.dialog.open(OtherMaterialsComponent, {
+      width: "750px",
+      data: info
+    });
   }
 }

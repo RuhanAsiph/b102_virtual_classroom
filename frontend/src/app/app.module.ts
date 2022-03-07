@@ -16,7 +16,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { CoursesComponent } from './staff-module/courses/courses.component';
 import { CourseContentComponent } from './staff-module/course-content/course-content.component'; 
 import {MatDialogModule} from '@angular/material/dialog';
-import { MaterialuploadDialogComponent } from './staff-module/materialupload-dialog/materialupload-dialog.component'; 
+import { MaterialuploadDialogComponent } from './staff-module/materialupload-dialog/materialupload-dialog.component';
+import { OtherMaterialsComponent } from './staff-module/other-materials/other-materials.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { MaterialuploadDialogComponent } from './staff-module/materialupload-dia
     CoursesComponent,
     CourseContentComponent,
     MaterialuploadDialogComponent,
+    OtherMaterialsComponent,
     
     
   ],
@@ -43,7 +45,7 @@ import { MaterialuploadDialogComponent } from './staff-module/materialupload-dia
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  entryComponents: [MaterialuploadDialogComponent],
+  entryComponents: [MaterialuploadDialogComponent, OtherMaterialsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

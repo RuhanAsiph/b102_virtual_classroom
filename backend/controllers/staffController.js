@@ -63,9 +63,8 @@ exports.getContent = (req, res) => {
 }
 
 //send material pdf 
-//add courseId insertion logic once the frontend starts behaving properly
+//add courseId insertion   logic once the frontend starts behaving properly
 exports.sendMaterial = (req, res) => {
-
     //contents --> Content
     const id = req.body._id
     const updatedMaterialModel = req.body
@@ -79,50 +78,22 @@ exports.sendMaterial = (req, res) => {
             console.log(err)
         }
     })
+}
 
-
-
-
-    // example id === courseId
-    //const id = req.params.id
-    // model = new contents(req.body)
-    // updateModel = req.body
-    // model.save((err, data) => {
-    //     if (err) {
-    //         console.log("error")
-    //     } else {
-    //         res.json({
-    //             status: 200,
-    //             data: "successfully uploaded"
-    //         })
-    //     }
-    // })
-
-    // Material.find({ courseId: id}, (err, material) => {
-    //     if (material) {
-    //         Material.findOneAndUpdate({ courseId: id }, updateModel, (err, data) => {
-    //             if (data) {
-    //                 res.json({
-    //                     status: 200,
-    //                     data: "successfully uploaded"
-    //                 })
-    //             }
-    //         })
-    //     } else if (!material) {
-    //         model.save((err, data) => {
-    //             if (err) {
-    //                 res.send(err)
-    //             } else {
-    //                 res.json({
-    //                     status: 200,
-    //                     data: "successfully uploaded"
-    //                 })
-    //             }
-    //         })
-    //     } else {
-    //         res.send(err)
-    //     }
-    // })
+exports.sendMaterials = (req, res) => {
+    
+    const id = req.body._id
+    const updatedMaterialModel = req.body.additionalMaterial
+    Content.findOneAndUpdate({ _id: id}, { $push: { additionalMaterial: updatedMaterialModel }}, (err, data) => {
+        if (data) {
+            res.json({
+                status: 200,
+                data: "successfully added the material"
+            })
+        } else if (err) {
+            console.log(err)
+        }
+    })
 }
 
 exports.fetchDoc = (req, res) => {
@@ -146,23 +117,21 @@ exports.deleteDoc = (req, res) => {
     //logic
     Content.findOne({ _id: id }, (err, data) => {
         var deletedDoc = data.toObject()
-
+        //contentMaterial value for future reference
+        var extract = deletedDoc["contentMaterial"]
         //check if is empty or nto
         if (deletedDoc.contentMaterial.length === 0) {
             res.json({
                 status: 200,
                 data: "There aren't any uploaded documents, please check again"
             })
-        }
-        
-        else {
-            delete deletedDoc.contentMaterial;
-            
-            Content.findOneAndUpdate({ _id: id }, deletedDoc, (err, data) => {
+        } else {
+            deletedDoc["contentMaterial"] = []
+            Content.findOneAndUpdate({ _id: id }, deletedDoc, {new: true}, (err, data) => {
                 if (data) {
                     res.json({
                         status: 200,
-                        data: "successfully removed materials"
+                        data: "successfully removed"
                     })
                 } else if (err) {
                     console.log(err)
