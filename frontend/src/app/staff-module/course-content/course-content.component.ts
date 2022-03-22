@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MaterialuploadDialogComponent } from '../materialupload-dialog/materialupload-dialog.component';
+import { EditMaterialsComponent } from '../edit-materials/edit-materials.component';
 @Component({
   selector: 'app-course-content',
   templateUrl: './course-content.component.html',
@@ -34,5 +35,12 @@ export class CourseContentComponent implements OnInit {
       width: "750px",
       data: content
     });
+  }
+
+  editDialog(content: any) {
+    const dialogRef = this.dialog.open(EditMaterialsComponent, {
+      width: "750px", 
+      data: content
+    })
   }
 }

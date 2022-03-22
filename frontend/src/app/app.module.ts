@@ -17,7 +17,16 @@ import { CoursesComponent } from './staff-module/courses/courses.component';
 import { CourseContentComponent } from './staff-module/course-content/course-content.component'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import { MaterialuploadDialogComponent } from './staff-module/materialupload-dialog/materialupload-dialog.component';
-import { OtherMaterialsComponent } from './staff-module/other-materials/other-materials.component'; 
+import { OtherMaterialsComponent } from './staff-module/other-materials/other-materials.component';
+import { EditMaterialsComponent } from './staff-module/edit-materials/edit-materials.component';
+import { MainViewComponent } from './student-module/main-view/main-view.component';
+import { DetailPageComponent } from './student-module/detail-page/detail-page.component'; 
+import {MatGridListModule} from '@angular/material/grid-list'; 
+import {MatExpansionModule} from '@angular/material/expansion';
+import { NgxStarsModule } from 'ngx-stars';
+import {MatTabsModule} from '@angular/material/tabs'; 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +37,9 @@ import { OtherMaterialsComponent } from './staff-module/other-materials/other-ma
     CourseContentComponent,
     MaterialuploadDialogComponent,
     OtherMaterialsComponent,
+    EditMaterialsComponent,
+    MainViewComponent,
+    DetailPageComponent
     
     
   ],
@@ -43,9 +55,13 @@ import { OtherMaterialsComponent } from './staff-module/other-materials/other-ma
     MatSidenavModule,
     MatFormFieldModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatGridListModule,
+    MatExpansionModule,
+    NgxStarsModule,
+    MatTabsModule
   ],
-  entryComponents: [MaterialuploadDialogComponent, OtherMaterialsComponent],
+  entryComponents: [MaterialuploadDialogComponent, OtherMaterialsComponent, EditMaterialsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

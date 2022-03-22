@@ -5,6 +5,8 @@ import { RegisterComponent } from './auth-module/components/register/register.co
 import { CourseContentComponent } from './staff-module/course-content/course-content.component';
 import { CoursesComponent } from './staff-module/courses/courses.component';
 import { MaterialuploadDialogComponent } from './staff-module/materialupload-dialog/materialupload-dialog.component';
+import { DetailPageComponent } from './student-module/detail-page/detail-page.component';
+import { MainViewComponent } from './student-module/main-view/main-view.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: "full"},
@@ -12,7 +14,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'courses', component: CoursesComponent},
   {path: 'course-content', component: CourseContentComponent},
-  {path: 'testing', component: MaterialuploadDialogComponent}
+  {path: 'student', component: MainViewComponent},
+  {path: 'student-detail', component: DetailPageComponent}
 ];
 
 @NgModule({

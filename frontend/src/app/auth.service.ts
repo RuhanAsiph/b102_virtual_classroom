@@ -44,4 +44,17 @@ export class AuthService {
   sendMaterials(materialModel: any) {
     return this.http.put(`${this.server}/staff/upload-materials`, materialModel)
   }
+
+  deleteMaterial(id: any, dataModel:any) {
+    return this.http.put(`${this.server}/staff/delete-material/${id}`, dataModel)
+  }
+
+  //student
+  getStudentCourses() {
+    return this.http.get(`${this.server}/student/get-courses`)
+  }
+
+  lookUp(courseId: any){
+    return this.http.get(`${this.server}/student/get-details/${courseId}`)
+  }
 }

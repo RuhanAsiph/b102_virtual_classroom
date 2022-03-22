@@ -1,0 +1,13 @@
+<div class="center-custom  pad-custom" *ngFor="let course of courses">
+<div class="card flex-container" style="width: 500px;" >
+    <div >
+    <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2019/08/23163109/Course-after-MBA.png" class="width-height-custom card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text"> {{ course.name }} <br> {{ course.teacher}} <br> {{ course.level }} <br> {{ course.description }} <br> {{ course.stars}} </p>
+    </div>
+    </div>
+    <div>
+        <button (click)="details(course._id)" class="second-div">Details</button>
+    </div>
+</div>
+</div>

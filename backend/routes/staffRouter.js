@@ -9,5 +9,5 @@ router.put('/upload-material', staffController.sendMaterial);
 router.get('/fetch-doc/:id', staffController.fetchDoc);
 router.put(`/delete-doc/:id`, staffController.deleteDoc);
 router.put('/upload-materials', staffController.sendMaterials);
-
+router.put('/delete-material/:id', staffController.deleteMaterial);
 module.exports = router;

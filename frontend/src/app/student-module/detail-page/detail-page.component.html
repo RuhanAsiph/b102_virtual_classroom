@@ -1,0 +1,126 @@
+<section class="showcase">
+  <div class="container grid">
+    <div class="showcase-text">
+      
+      <h1> {{ details.name }}</h1>
+      By {{ details.teacher }} &nbsp; &nbsp; &nbsp; {{ details.stars }} Stars 
+      <p>
+        {{ details.description }}
+      </p>
+
+    </div>
+    <div class="showcase-form card">
+      <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2019/08/23163109/Course-after-MBA.png" class="width-height-custom card-img-top" alt="...">
+      <h2>{{details.name}}</h2>
+      <p>
+        {{ details.description }}
+      </p>
+      <input placeholder="Enroll" type="submit" class="btn btn-primary">
+    </div>
+  </div>
+</section>
+
+<div class="more-style">
+  
+<section class="container">
+  
+  <h3 class="padding-mor">{{ details.about }} </h3>
+  <h1>Course Content</h1>
+  <mat-accordion  *ngFor="let data of this.details.output">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ data.lecture }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ data.description }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{ data.courseCode }}
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <h3 class="padding-mor">New User? Register above</h3>
+  
+   
+</section>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="main-flex">
+
+
+
+
+  <div class="overview overview-style">
+  <h1>Course: {{ details.name }} <br> </h1>
+  <h3>By: {{ details.teacher }} &nbsp; &nbsp; &nbsp;  Stars: {{ details.stars }} </h3>
+  <p class="about">About course: <br> {{ details.about }}  </p>
+  <h4>Description: <br> {{ details.description }}</h4>
+  <br>
+
+  
+
+</div>
+
+
+
+<div class="enroll-img">
+  <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2019/08/23163109/Course-after-MBA.png" class="width-height-custom card-img-top" alt="...">
+  <p>$50</p>
+  <button> Enroll??</button>
+  <p>This course includes <br>
+  40 videos <br> One on One Interaction <br> The new teaching methods for eddicient learning <br> Downloadable Materials 
+  </p>
+</div>
+
+</div>
+
+
+<div class="new-accordian">
+  <mat-accordion  *ngFor="let data of this.details.output">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ data.lecture }}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ data.description }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{ data.courseCode }}
+    </mat-expansion-panel>
+  </mat-accordion> 
+</div> -->

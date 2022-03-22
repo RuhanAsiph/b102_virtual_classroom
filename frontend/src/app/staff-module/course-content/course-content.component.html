@@ -15,7 +15,9 @@
             <td>{{ content.lecture }}</td>
             <td>{{ content.description }}</td>
             <td>{{ content.courseCode }}</td>
-            <td><i class="fa fa-plus-square-o" (click)="materialDialog(content)" style="font-size:24px"></i></td>
+            <td><i class="fa fa-plus-square-o" (click)="materialDialog(content)" style="font-size:24px"></i> &nbsp;
+              <i class="fa fa-pencil" style="font-size:24px" (click)="editDialog(content)"></i>
+            </td>
             <!-- <td><button (click)="materialDialog(content)">Upload</button></td> -->
           </tr>
         </tbody>

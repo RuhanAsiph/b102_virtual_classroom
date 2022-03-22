@@ -1,5 +1,7 @@
 const express = require('express');
 
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 const Course = require('../models/course.model');
 const Content = require('../models/content.model');
@@ -49,8 +51,9 @@ exports.sendCourse = (req, res) => {
 //get contents of a particular class
 exports.getContent = (req, res) => {
     const courseId = req.params.id
-
-    Content.find({ courseId: courseId }, (err, content) => {
+    console.log(courseId)
+    
+    Content.find({ courseId: ObjectId("621f15bb54ae0e39b3ccaebc") }, (err, content) => {
         if (err) {
             res.send(err)
         } else {
@@ -138,6 +141,23 @@ exports.deleteDoc = (req, res) => {
                 }
             })
 
+        }
+    })
+}
+
+exports.deleteMaterial = (req, res) => {
+    internalId = req.params.id
+    mainId = req.body._id 
+    Content.findOneAndUpdate({ _id: mainId }, { $pull: {additionalMaterial: { _id: internalId}}}, (err, data) => {
+        if (data) {
+            res.json({
+                status: 200,
+                data: "successfully removed"
+            })
+        } else if (!data) {
+            console.log("inside !data")
+        } else {
+            console.log("inside err")
         }
     })
 }

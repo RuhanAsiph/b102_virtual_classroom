@@ -1,0 +1,163 @@
+// .accord {
+//     width: 60%;
+//     align-content: left;
+//     padding-left: 0;
+//     margin-left: 0;
+// }
+// .main-content {
+//    font-size: 1.1em;
+// }
+
+// .about {
+//     font-weight: 300;
+// }
+
+// .overview-style {
+//     background-color: azure;
+// }
+
+// .enroll-img {
+//     background-color: rgb(197, 197, 197);
+// }
+
+// img {
+//     width: 300px;
+// }
+
+// new-accordian {
+//     width: 300px
+// }
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    color: #333;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1, h2 {
+    font-weight: 300;
+    line-height: 1.2;
+    margin: 10px 0;
+
+}
+
+p {
+    margin: 10px 0;
+
+}
+
+img {
+    width: 100%;
+}
+
+.navbar {
+    background-color: #047aed;
+    color: #fff;
+    height: 70px;
+}
+
+
+.navbar .flex {
+    justify-content: space-between;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 0 40px;
+
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px white solid;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+//shcowcase 
+
+// .showcase .grid {
+//     grid-template-columns: 55% 45%;
+//     gap: 30px;
+// }
+.showcase {
+    
+    background-color: #047aed;
+    color: white;
+    position: relative;
+
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.showcase h1 {
+    font-size: 40px;
+
+}
+
+.showcase p {
+    margin: 20px 0; 
+}
+
+.card {
+    background-color: maroon;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    margin: 10px;
+    color: #fff;
+}
+
+.showcase-form {
+
+}
+
+.more-style {
+    padding-top: 50px;
+    background-color: aliceblue;
+}
+.padding-mor {
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: white;
+    color: maroon;
+}

@@ -1,0 +1,3 @@
+<div *ngFor="let n of data.additionalMaterial">
+    <p>Id: {{ n._id }} , File name: {{n.fileName}}, Instructor: {{n.instructor}} <button (click)="deleteMaterial(n._id)">Delete</button></p> 
+</div>
