@@ -24,7 +24,9 @@ import { DetailPageComponent } from './student-module/detail-page/detail-page.co
 import {MatGridListModule} from '@angular/material/grid-list'; 
 import {MatExpansionModule} from '@angular/material/expansion';
 import { NgxStarsModule } from 'ngx-stars';
-import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatTabsModule} from '@angular/material/tabs';
+import { EnrollmentComponent } from './student-module/enrollment/enrollment.component'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 
 @NgModule({
@@ -39,7 +41,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     OtherMaterialsComponent,
     EditMaterialsComponent,
     MainViewComponent,
-    DetailPageComponent
+    DetailPageComponent,
+    EnrollmentComponent
     
     
   ],
@@ -59,7 +62,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatGridListModule,
     MatExpansionModule,
     NgxStarsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCheckboxModule
   ],
   entryComponents: [MaterialuploadDialogComponent, OtherMaterialsComponent, EditMaterialsComponent],
   providers: [],

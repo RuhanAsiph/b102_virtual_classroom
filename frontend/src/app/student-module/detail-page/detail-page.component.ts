@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { NgxStarsComponent } from 'ngx-stars';
 import { AuthService } from 'src/app/auth.service';
 
@@ -19,7 +19,7 @@ export class DetailPageComponent implements OnInit {
   details: any = [];
   panelOpenState = false;
   id: any;
-  constructor(public authService: AuthService, private activatedRoute: ActivatedRoute) { 
+  constructor(public authService: AuthService, private activatedRoute: ActivatedRoute, private router:Router) { 
     this.id = this.activatedRoute.snapshot.queryParamMap.get("id")
   }
 
@@ -42,4 +42,14 @@ export class DetailPageComponent implements OnInit {
       }
     })
   }
+
+  enroll(data: any) {
+    const navigationExtras: NavigationExtras ={
+      queryParams: {
+        id: data
+      }
+    }
+    this.router.navigate(['/enrollment'], navigationExtras)
+  }
+
 }
