@@ -1,17 +1,30 @@
+
+
 <div class="container">
-    <p>Tab 1 - Personal Details</p>
-    <form>  
-        <label>Name:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.name" placeholder="Enter your name"> <br>
-        <label>Gender:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.gender" placeholder="Enter your gender"> <br>
-        <label>Blood Type:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.bloodType" placeholder="Enter your blood type"> <br>
-        <label>Contact Number:</label> <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.contactNumber" placeholder="Enter your contact no."> <br>
-        <label></label>
-        <button (click)="tabOne()">Submit And Next</button>
-    </form>
-    <br>
-    <br>
-    <p>Tab 2 - Address Details + correspondinf address</p>
-    <p>Curent Address</p>
+    <p class="main-heading"> Submit Your Details Before Enrollment</p>
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Personal Details">
+        <div class="tab-one container">
+        <form>  
+            <mat-label>Name:</mat-label> <input matInput  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.name" placeholder="Enter your name"> <br>
+            <label>Gender:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.gender" placeholder="Enter your gender"> <br>
+            <label>Blood Type:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.bloodType" placeholder="Enter your blood type"> <br>
+            <label>Contact Number:</label> <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.contactNumber" placeholder="Enter your contact no."> <br>
+            <label></label>
+            <button (click)="tabOne()">Submit And Next</button>
+        </form>
+        </div>
+    </mat-tab>
+
+
+
+
+
+
+
+    <mat-tab label="Address">
+        <div class="tab-one container">
+        <p>Curent Address</p>
     <form>
 
         <label>Street name:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.street" placeholder="Enter your Street name"> <br>
@@ -26,22 +39,38 @@
     <br>
     <p>Original Address</p>
     <p>Is your original address same as your current address? under construction</p>
-    <!-- create a checkbox -->
+    
 
     <form>
 
     </form>
     <button (click)="tabTwo()">Submit And Next</button>
-    <br>
-    <br>
-    <p>Tab 3 - School Education 10th Marks and 12th Marks; Current Education Status</p>
-    <label>10th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.tenthMarks" placeholder="Enter your 10th Marks"> <br>
-    <label>12th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
-    <button (click)="tabThree()">Submit And Next</button>
-    <br>
-    <br>
-    <p>Tab 4 - upload profile picture and signature</p>
-    <p>Upload Passport size picture</p>
+    </div>
+    </mat-tab>
+
+
+
+
+
+    <mat-tab label="10th and 12th Score Details">
+        <div class="tab-one container">
+        <label>10th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.tenthMarks" placeholder="Enter your 10th Marks"> <br>
+        <label>12th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
+        <button (click)="tabThree()">Submit And Next</button>
+
+            </div>
+
+
+    </mat-tab>
+
+
+
+
+
+
+    <mat-tab label="Upload Picture ">
+        <div class="tab-one container">
+        <p>Upload Passport size picture</p>
     <div>
         <img *ngIf="dummyDataTobeSentToTheBackend.image" [src]="dummyDataTobeSentToTheBackend.image?dummyDataTobeSentToTheBackend.image: image"  alt="photo" style="width: 200px" > <br>
         <input class="file-upload" type="file" (change)="facePhoto($event)" >
@@ -64,4 +93,11 @@
         </div> 
     </div>
     <button (click)="tabFour()">Submit And Next</button>
+    </div>
+    </mat-tab>
+
+    <mat-tab label="Review">
+        
+    </mat-tab>
+</mat-tab-group>
 </div>
