@@ -23,7 +23,20 @@
 <div class="more-style">
   
 <section class="container">
-  
+  <div class="more-card">
+  <mat-card>
+    <h2>What You Will Learn</h2>
+    <div>
+      <h4>
+        <!-- use grids instead -->
+      {{ details.whatYouWillLearn[0] }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      {{ details.whatYouWillLearn[1] }} <br>
+      {{ details.whatYouWillLearn[2] }} &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+      {{ details.whatYouWillLearn[3] }} <br>
+    </h4>
+    </div>
+  </mat-card>
+</div>
   <h3 class="padding-mor">{{ details.about }} </h3>
   <h1>Course Content</h1>
   <mat-accordion  *ngFor="let data of this.details.output">

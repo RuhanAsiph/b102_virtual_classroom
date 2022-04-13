@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
 
@@ -8,6 +9,10 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./enrollment.component.scss']
 })
 export class EnrollmentComponent implements OnInit {
+  
+  @ViewChild(MatTabGroup) mattabgroup!: MatTabGroup
+
+
   id: any;
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.queryParamMap.get("id")
@@ -33,31 +38,40 @@ export class EnrollmentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // personal detail = {} ; 
+  // tabOne(){
+  //   this.dataOne = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataToBeSentToTheBackend)
+  //   this.dummyDataTobeSentToTheBackend = {}
+  // }
 
-  tabOne(){
-    this.dataOne = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataToBeSentToTheBackend)
-    this.dummyDataTobeSentToTheBackend = {}
+  // tabTwo(){
+  //   this.dataTwo = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataOne)
+  //   this.dummyDataTobeSentToTheBackend = {}
+  // }
+
+  // tabThree(){
+  //   this.dataThree = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataTwo)
+  //   this.dummyDataTobeSentToTheBackend = {}
+  // }
+
+  // tabFour(){
+  //   this.dataFour = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataThree)
+  //   this.dataFour = Object.assign( { id: this.id }, this.dataFour)
+  //   console.log(this.dataFour)
+  //   this.dummyDataTobeSentToTheBackend = {}
+  // }
+
+
+/* 
+
+  final submit
+  const finalSubmitObj = {
+    courseId: this.id,
+    personalDetails: personalDetails,
+    address: address,
+    ...
   }
-
-  tabTwo(){
-    this.dataTwo = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataOne)
-    this.dummyDataTobeSentToTheBackend = {}
-  }
-
-  tabThree(){
-    this.dataThree = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataTwo)
-    this.dummyDataTobeSentToTheBackend = {}
-  }
-
-  tabFour(){
-    this.dataFour = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataThree)
-    this.dataFour = Object.assign( { id: this.id }, this.dataFour)
-    console.log(this.dataFour)
-    this.dummyDataTobeSentToTheBackend = {}
-  }
-
-
-
+*/
 
 
 
