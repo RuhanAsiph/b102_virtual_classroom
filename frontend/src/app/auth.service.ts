@@ -57,4 +57,9 @@ export class AuthService {
   lookUp(courseId: any){
     return this.http.get(`${this.server}/student/get-details/${courseId}`)
   }
+
+  //enrollment 
+  sendEnrollmentDetailsOfTheStudent(dataModel: any) {
+    return this.http.post(`${this.server}/student/enroll-details`, dataModel)
+  }
 }

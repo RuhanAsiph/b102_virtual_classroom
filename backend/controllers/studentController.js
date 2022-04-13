@@ -5,7 +5,7 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const Course = require('../models/course.model');
 const Content = require('../models/content.model');
-
+const Enroll = require('../models/student/enrollment.model');
 exports.getStudentCourses = (req, res) => {
     Course.find({}, (err, data) => {
         if (err) {
@@ -17,6 +17,31 @@ exports.getStudentCourses = (req, res) => {
             })
         }
     })
+}
+
+exports.enrollDetails = (req, res) => {
+    enrollModel = new Enroll(req.body)
+    Enroll.findOne({ courseId: enrollModel.courseId }, (err, yesExists) => {
+        if (yesExists) {
+            //replace logic
+        } else if (!yesExists) {
+            enrollModel.save((err, data) => {
+                if (err) {
+                    res.send(err)
+                } else {
+                    console.log(data)
+                    res.json({
+                        status: 200,
+                        data: "successfully enrolled"
+                        
+                    })
+                }
+            })
+        } else if (err) {
+            res.send(err)
+        }
+    })
+
 }
 
 exports.getStudentDetails = (req, res) => {

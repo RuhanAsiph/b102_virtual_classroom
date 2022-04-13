@@ -1,103 +1,140 @@
-
-
 <div class="container">
     <p class="main-heading"> Submit Your Details Before Enrollment</p>
-<mat-tab-group mat-align-tabs="center">
-    <mat-tab label="Personal Details">
-        <div class="tab-one container">
-        <form>  
-            <mat-label>Name:</mat-label> <input matInput  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.name" placeholder="Enter your name"> <br>
-            <label>Gender:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.gender" placeholder="Enter your gender"> <br>
-            <label>Blood Type:</label> <input  [ngModelOptions]="{standalone: true}" type="text"  [(ngModel)]="dummyDataTobeSentToTheBackend.bloodType" placeholder="Enter your blood type"> <br>
-            <label>Contact Number:</label> <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.contactNumber" placeholder="Enter your contact no."> <br>
-            <label></label>
-            <button (click)="tabOne()">Submit And Next</button>
-        </form>
-        </div>
-    </mat-tab>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="Personal Details">
+            <div class="tab-one container">
+                <form>
+                    <mat-label>Name:</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.name" placeholder="Enter your name"> <br>
+                    <label>Gender:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.gender" placeholder="Enter your gender"> <br>
+                    <label>Blood Type:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.bloodType" placeholder="Enter your blood type"> <br>
+                    <label>Contact Number:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.contactNumber" placeholder="Enter your contact no."> <br>
+                    <label></label>
+                    <button (click)="view()">Next</button>
+                </form>
+            </div>
+        </mat-tab>
 
 
 
 
 
 
+        <mat-tab label="Address">
+            <div class="tab-one container">
+                <p>Curent Address</p>
+                <form>
 
-    <mat-tab label="Address">
-        <div class="tab-one container">
-        <p>Curent Address</p>
-    <form>
+                    <label>Street name:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.street" placeholder="Enter your Street name"> <br>
+                    <label>Locality:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.locality" placeholder="Enter your locality"> <br>
+                    <label>City: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.city" placeholder="Enter your city"> <br>
+                    <label> State or Union Territory: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.state" placeholder="Enter your state"> <br>
+                    <label> Pincode: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.pincode" placeholder="Enter your Pin Code"> <br>
+                    <label>Country: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.country" placeholder="Enter your Country">
 
-        <label>Street name:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.street" placeholder="Enter your Street name"> <br>
-        <label>Locality:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.locality" placeholder="Enter your locality"> <br>
-        <label>City: </label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.city" placeholder="Enter your city"> <br>
-        <label> State or Union Territory: </label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.state" placeholder="Enter your state"> <br>
-        <label> Pincode: </label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.pincode" placeholder="Enter your Pin Code"> <br>
-        <label>Country: </label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.country" placeholder="Enter your Country">
-       
-    </form>
+                </form>
 
-    <br>
-    <p>Original Address</p>
-    <p>Is your original address same as your current address? under construction</p>
-    
-
-    <form>
-
-    </form>
-    <button (click)="tabTwo()">Submit And Next</button>
-    </div>
-    </mat-tab>
+                <br>
+                <p>Original Address</p>
+                <p>Is your original address same as your current address? under construction</p>
 
 
+                <form>
+
+                </form>
+                <button>Next</button>
+            </div>
+        </mat-tab>
 
 
 
-    <mat-tab label="10th and 12th Score Details">
-        <div class="tab-one container">
-        <label>10th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.tenthMarks" placeholder="Enter your 10th Marks"> <br>
-        <label>12th Marks:</label> <input  [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="dummyDataTobeSentToTheBackend.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
-        <button (click)="tabThree()">Submit And Next</button>
+
+
+        <mat-tab label="10th and 12th Score Details">
+            <div class="tab-one container">
+                <label>10th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                    [(ngModel)]="marksData.tenthMarks" placeholder="Enter your 10th Marks"> <br>
+                <label>12th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                    [(ngModel)]="marksData.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
+                <button>Next</button>
 
             </div>
 
 
-    </mat-tab>
+        </mat-tab>
 
 
 
 
 
 
-    <mat-tab label="Upload Picture ">
-        <div class="tab-one container">
-        <p>Upload Passport size picture</p>
-    <div>
-        <img *ngIf="dummyDataTobeSentToTheBackend.image" [src]="dummyDataTobeSentToTheBackend.image?dummyDataTobeSentToTheBackend.image: image"  alt="photo" style="width: 200px" > <br>
-        <input class="file-upload" type="file" (change)="facePhoto($event)" >
-        <div *ngIf="isExtensionError" class="text-danger">
-            Please use jpg or png
-        </div> 
-        <div class="text-danger" *ngIf="isSizeError">
-            please compress the img. image size should be less than 1mb
-        </div> 
-    </div>
-    <p>Upload signature<p>
-    <div>
-        <img *ngIf="dummyDataTobeSentToTheBackend.imageTwo" [src]="dummyDataTobeSentToTheBackend.imageTwo?dummyDataTobeSentToTheBackend.imageTwo: imageTwo"  alt="photo" style="width: 200px" > <br>
-        <input class="file-upload" type="file" (change)="signaturePhoto($event)" >
-        <div *ngIf="isExtensionError" class="text-danger">
-            Please use jpg or png
-        </div> 
-        <div class="text-danger" *ngIf="isSizeError">
-            please compress the img. image size should be less than 1mb
-        </div> 
-    </div>
-    <button (click)="tabFour()">Submit And Next</button>
-    </div>
-    </mat-tab>
+        <mat-tab label="Upload Picture ">
+            <div class="tab-one container">
+                <p>Upload Passport size picture</p>
+                <div>
+                    <img *ngIf="pictureData.image" [src]="pictureData.image?pictureData.image: image" alt="photo"
+                        style="width: 200px"> <br>
+                    <input class="file-upload" type="file" (change)="facePhoto($event)">
+                    <div *ngIf="isExtensionError" class="text-danger">
+                        Please use jpg or png
+                    </div>
+                    <div class="text-danger" *ngIf="isSizeError">
+                        please compress the img. image size should be less than 1mb
+                    </div>
+                </div>
+                <p>Upload signature
+                <p>
+                <div>
+                    <img *ngIf="pictureData.imageTwo" [src]="pictureData.imageTwo?pictureData.imageTwo: imageTwo"
+                        alt="photo" style="width: 200px"> <br>
+                    <input class="file-upload" type="file" (change)="signaturePhoto($event)">
+                    <div *ngIf="isExtensionError" class="text-danger">
+                        Please use jpg or png
+                    </div>
+                    <div class="text-danger" *ngIf="isSizeError">
+                        please compress the img. image size should be less than 1mb
+                    </div>
+                </div>
+                <button>Review</button>
+            </div>
+        </mat-tab>
 
-    <mat-tab label="Review">
-        
-    </mat-tab>
-</mat-tab-group>
+        <mat-tab label="Review">
+            <div class="container">
+            <h2>Personal Details - </h2>
+            <label>Name: </label> {{ personalData.name }} <br>
+            <label>Gender: </label> {{ personalData.gender }} <br>
+            <label>Blood Type: </label> {{ personalData.bloodType }} <br>
+            <label>Contact Number: </label> {{ personalData.contactNumber }} <br>
+
+            <h2>Current Address -</h2>
+            <label>Street: </label> {{ addressData.street }} <br>
+            <label>Locality: </label> {{ addressData.locality }} <br>
+            <label>City: </label> {{ addressData.city }} <br>
+            <label>State: </label> {{ addressData.state }} <br>
+            <label>Pincode: </label> {{ addressData.pincode }} <br>
+            <label>Country: </label> {{ addressData.country }} <br>
+
+            <h2>10th and 12th Marks</h2>
+            <label>10th Marks: </label> {{ marksData.tenthMarks }} <br>
+            <label>12th Marks: </label> {{ marksData.twelfthMarks }} <br>
+
+            <h2>Passport size picture and signature - </h2>
+            <label>Passport size photo</label> <br> <img [src]="pictureData.image" alt="passport size photo"
+                style="width: 200px"> <br>
+            <label>Signature</label> <br> <img [src]="pictureData.imageTwo" alt="signature" style="width: 200px"> <br>
+
+            <button (click)="finalSubmit()" >Submit</button>
+        </div>
+        </mat-tab>
+    </mat-tab-group>
 </div>

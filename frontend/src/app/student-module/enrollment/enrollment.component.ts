@@ -28,51 +28,36 @@ export class EnrollmentComponent implements OnInit {
 
 
   //db related model
-  dummyDataTobeSentToTheBackend:any = {}
-  dataOne: any = {}
-  dataTwo: any = {}
-  dataFour: any = {}
-  dataThree: any = {}
-  //courseId
-  dataToBeSentToTheBackend: any  = {}
+   personalData: any = {}
+   addressData: any = {}
+   marksData: any = {}
+   pictureData: any = {}
+
+
   ngOnInit(): void {
   }
 
-  // personal detail = {} ; 
-  // tabOne(){
-  //   this.dataOne = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataToBeSentToTheBackend)
-  //   this.dummyDataTobeSentToTheBackend = {}
-  // }
-
-  // tabTwo(){
-  //   this.dataTwo = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataOne)
-  //   this.dummyDataTobeSentToTheBackend = {}
-  // }
-
-  // tabThree(){
-  //   this.dataThree = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataTwo)
-  //   this.dummyDataTobeSentToTheBackend = {}
-  // }
-
-  // tabFour(){
-  //   this.dataFour = Object.assign( this.dummyDataTobeSentToTheBackend, this.dataThree)
-  //   this.dataFour = Object.assign( { id: this.id }, this.dataFour)
-  //   console.log(this.dataFour)
-  //   this.dummyDataTobeSentToTheBackend = {}
-  // }
-
-
-/* 
-
-  final submit
-  const finalSubmitObj = {
-    courseId: this.id,
-    personalDetails: personalDetails,
-    address: address,
-    ...
+  //functionality 
+  view(){
+    console.log(this.personalData)
   }
-*/
 
+  finalSubmit() {
+    const finalSubmitObj = {
+      courseId: this.id,
+      personalData: this.personalData,
+      addressData: this.addressData,
+      marksData: this.marksData,
+      pictureData: this.pictureData
+    } 
+    this.authService.sendEnrollmentDetailsOfTheStudent(finalSubmitObj).subscribe((res: any) => {
+      if (res.status === 200) {
+        alert(res.data)
+      } else {
+        alert(res.data)
+      }
+    })
+  }
 
 
 
@@ -92,7 +77,7 @@ export class EnrollmentComponent implements OnInit {
       } else if (extension === "jpg" || extension === "png") {
         var reader: any = new FileReader();
         reader.onloadend = function () {
-          _that.dummyDataTobeSentToTheBackend.image = reader.result 
+          _that.pictureData.image = reader.result 
         } 
         reader.readAsDataURL(file);
       } else {
@@ -117,7 +102,7 @@ export class EnrollmentComponent implements OnInit {
       } else if (extension === "jpg" || extension === "png") {
         var reader: any = new FileReader();
         reader.onloadend = function () {
-          _that.dummyDataTobeSentToTheBackend.imageTwo = reader.result 
+          _that.pictureData.imageTwo = reader.result 
         } 
         reader.readAsDataURL(file);
       } else {
