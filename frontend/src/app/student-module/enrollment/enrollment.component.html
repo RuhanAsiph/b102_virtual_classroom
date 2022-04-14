@@ -1,21 +1,38 @@
 <div class="container">
     <p class="main-heading"> Submit Your Details Before Enrollment</p>
     <mat-tab-group mat-align-tabs="center">
+         
         <mat-tab label="Personal Details">
-            <div class="tab-one container">
-                <form>
-                    <mat-label>Name:</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.name" placeholder="Enter your name"> <br>
-                    <label>Gender:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.gender" placeholder="Enter your gender"> <br>
-                    <label>Blood Type:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.bloodType" placeholder="Enter your blood type"> <br>
-                    <label>Contact Number:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.contactNumber" placeholder="Enter your contact no."> <br>
-                    <label></label>
-                    <button (click)="view()">Next</button>
+            <div fxLayoutAlign="center center" >
+            <mat-card fxFlex="50">
+            <div>
+
+                
+                <form fxLayoutAlign="stretch" fxLayout="column">
+                    <mat-form-field>
+                    <mat-label>Name</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.name" placeholder="Enter your name"> 
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                    <mat-label>Gender</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.gender" placeholder="Enter your gender"> 
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                    <mat-label>Blood Type</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.bloodType" placeholder="Enter your blood type"> 
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                    <mat-label>Contact Number</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="personalData.contactNumber" placeholder="Enter your contact no.">
+                    </mat-form-field> <br>
+                    <button mat-raised-button>Next</button>
                 </form>
             </div>
+        </mat-card>
+    </div>
         </mat-tab>
 
 
@@ -23,8 +40,8 @@
 
 
 
-        <mat-tab label="Address">
-            <div class="tab-one container">
+        <mat-tab disabled label="Address">
+            <div >
                 <p>Curent Address</p>
                 <form>
 
@@ -59,7 +76,7 @@
 
 
 
-        <mat-tab label="10th and 12th Score Details">
+        <mat-tab disabled label="10th and 12th Score Details">
             <div class="tab-one container">
                 <label>10th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
                     [(ngModel)]="marksData.tenthMarks" placeholder="Enter your 10th Marks"> <br>
@@ -77,7 +94,7 @@
 
 
 
-        <mat-tab label="Upload Picture ">
+        <mat-tab disabled label="Upload Picture ">
             <div class="tab-one container">
                 <p>Upload Passport size picture</p>
                 <div>
@@ -108,7 +125,7 @@
             </div>
         </mat-tab>
 
-        <mat-tab label="Review">
+        <mat-tab disabled label="Review">
             <div class="container">
             <h2>Personal Details - </h2>
             <label>Name: </label> {{ personalData.name }} <br>

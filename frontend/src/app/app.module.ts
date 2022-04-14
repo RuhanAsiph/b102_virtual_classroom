@@ -26,7 +26,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { NgxStarsModule } from 'ngx-stars';
 import {MatTabsModule} from '@angular/material/tabs';
 import { EnrollmentComponent } from './student-module/enrollment/enrollment.component'; 
-import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatButtonModule} from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 
 @NgModule({
@@ -63,7 +66,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatExpansionModule,
     NgxStarsModule,
     MatTabsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatToolbarModule
   ],
   entryComponents: [MaterialuploadDialogComponent, OtherMaterialsComponent, EditMaterialsComponent],
   providers: [],
