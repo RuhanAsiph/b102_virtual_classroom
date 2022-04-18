@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatTabGroup } from '@angular/material/tabs';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
@@ -10,9 +11,10 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class EnrollmentComponent implements OnInit {
   
-  @ViewChild(MatTabGroup) mattabgroup!: MatTabGroup
+  @ViewChild('personalDetailsForm', {static: false}) public personalForm!: NgForm;
+  @ViewChild(MatTabGroup) mattabgroup!: MatTabGroup;
 
-
+  
   id: any;
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {
     this.id = this.activatedRoute.snapshot.queryParamMap.get("id")
@@ -25,28 +27,58 @@ export class EnrollmentComponent implements OnInit {
   imageTwo: any = "";
   isExtensionError: boolean = false;
   isSizeError: boolean = false;
-
+  notSame: boolean = true;
+  
 
   //db related model
    personalData: any = {}
    addressData: any = {}
+   permanentAddressData: any = {}
    marksData: any = {}
    pictureData: any = {}
 
 
   ngOnInit(): void {
+  
   }
 
   //functionality 
-  view(){
-    console.log(this.personalData)
+  personalDetailsNext(tabnumber: number){
+    if (this.personalForm.valid){
+      this.mattabgroup.selectedIndex = tabnumber;
+    } else {
+      alert("fill the details")
+    }
+  }
+  addressPrev(tabnumber: any) {
+    this.mattabgroup.selectedIndex = tabnumber;
+  }
+  addressNext(tabnumber: any){
+    this.mattabgroup.selectedIndex = tabnumber;
+  }
+  scorePrev(tabnumber: any) {
+    this.mattabgroup.selectedIndex = tabnumber;
+  }
+  scoreNext(tabnumber: any) {
+    this.mattabgroup.selectedIndex = tabnumber;
+  }
+  reviewPrev(tabnumber: any) {
+    this.mattabgroup.selectedIndex = tabnumber;
+  }
+  reviewFinal(tabnumber: any) {
+    this.mattabgroup.selectedIndex = tabnumber;
   }
 
+
   finalSubmit() {
+    if ( this.notSame === false ) {
+      this.permanentAddressData = this.addressData
+    }
     const finalSubmitObj = {
       courseId: this.id,
       personalData: this.personalData,
       addressData: this.addressData,
+      permanentAddressData: this.permanentAddressData,
       marksData: this.marksData,
       pictureData: this.pictureData
     } 
@@ -57,6 +89,11 @@ export class EnrollmentComponent implements OnInit {
         alert(res.data)
       }
     })
+  }
+
+  same(){
+    this.notSame = !this.notSame
+    
   }
 
 

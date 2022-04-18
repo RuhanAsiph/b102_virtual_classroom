@@ -23,7 +23,10 @@ exports.enrollDetails = (req, res) => {
     enrollModel = new Enroll(req.body)
     Enroll.findOne({ courseId: enrollModel.courseId }, (err, yesExists) => {
         if (yesExists) {
-            //replace logic
+            res.json({
+                status: 400,
+                data: "already enrolled"
+            })
         } else if (!yesExists) {
             enrollModel.save((err, data) => {
                 if (err) {

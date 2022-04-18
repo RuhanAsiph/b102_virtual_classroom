@@ -1,35 +1,42 @@
 <div class="container">
     <p class="main-heading"> Submit Your Details Before Enrollment</p>
-    <mat-tab-group mat-align-tabs="center">
+    <mat-tab-group  mat-align-tabs="center">
          
         <mat-tab label="Personal Details">
-            <div fxLayoutAlign="center center" >
-            <mat-card fxFlex="50">
+            <div >
+            <mat-card>
             <div>
 
                 
-                <form fxLayoutAlign="stretch" fxLayout="column">
-                    <mat-form-field>
-                    <mat-label>Name</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.name" placeholder="Enter your name"> 
-                    </mat-form-field>
+                <form #personalDetailsForm="ngForm" fxLayoutAlign="stretch" fxLayout="column">
+                    
+                    <label>Name</label> <input required [ngModelOptions]="{standalone: true}" type="text" name="personalName" #name="ngModel" 
+                        [(ngModel)]="personalData.name"  [ngModelOptions]="{standalone: false}" placeholder="Enter your name" ngModel> 
+                    
+                    
                     <br>
-                    <mat-form-field>
-                    <mat-label>Gender</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                    <div *ngIf="name.invalid && (name.dirty || name.touched || personalDetailsForm.submitted )" class="alert">
+                        <div *ngIf="name.errors?.['required']">
+                            <div class="err-style">Name is required. </div> 
+                        </div> 
+                    </div>
+                  
+                    <label>Gender</label> <input  [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="personalData.gender" placeholder="Enter your gender"> 
-                    </mat-form-field>
+                   
                     <br>
-                    <mat-form-field>
-                    <mat-label>Blood Type</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                   
+                    <label>Blood Type</label> <input [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="personalData.bloodType" placeholder="Enter your blood type"> 
-                    </mat-form-field>
+                   
                     <br>
-                    <mat-form-field>
-                    <mat-label>Contact Number</mat-label> <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                  
+                    <label>Contact Number</label> <input [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="personalData.contactNumber" placeholder="Enter your contact no.">
-                    </mat-form-field> <br>
-                    <button mat-raised-button>Next</button>
+                    <br>
+                    
                 </form>
+                <button class="btn1" (click)="personalDetailsNext(1)">Next</button>
             </div>
         </mat-card>
     </div>
@@ -40,10 +47,10 @@
 
 
 
-        <mat-tab disabled label="Address">
+        <mat-tab label="Address">
             <div >
                 <p>Curent Address</p>
-                <form>
+                <form fxLayoutAlign="stretch" fxLayout="column">
 
                     <label>Street name:</label> <input [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="addressData.street" placeholder="Enter your Street name"> <br>
@@ -59,16 +66,29 @@
                         [(ngModel)]="addressData.country" placeholder="Enter your Country">
 
                 </form>
-
                 <br>
-                <p>Original Address</p>
-                <p>Is your original address same as your current address? under construction</p>
 
-
-                <form>
-
+                <button *ngIf="notSame" class="btn1 color-btn" (click)="same()">Click if permanent address is same as current address!</button>
+                <form *ngIf="notSame"fxLayoutAlign="stretch" fxLayout="column">
+                    
+                    
+                    
+                    <label>Street name:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.street" placeholder="Enter your Street name"> <br>
+                    <label>Locality:</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.locality" placeholder="Enter your locality"> <br>
+                    <label>City: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.city" placeholder="Enter your city"> <br>
+                    <label> State or Union Territory: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.state" placeholder="Enter your state"> <br>
+                    <label> Pincode: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.pincode" placeholder="Enter your Pin Code"> <br>
+                    <label>Country: </label> <input [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.country" placeholder="Enter your Country">
                 </form>
-                <button>Next</button>
+                
+                <button class="btn1" (click)="addressNext(0)">Previous</button>
+                <button class="btn1" (click)="addressNext(2)">Next</button>
             </div>
         </mat-tab>
 
@@ -76,25 +96,28 @@
 
 
 
-        <mat-tab disabled label="10th and 12th Score Details">
-            <div class="tab-one container">
+        <mat-tab label="10th and 12th Score Details">
+            <form fxLayoutAlign="stretch" fxLayout="column">
+            
                 <label>10th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
                     [(ngModel)]="marksData.tenthMarks" placeholder="Enter your 10th Marks"> <br>
                 <label>12th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
                     [(ngModel)]="marksData.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
-                <button>Next</button>
-
-            </div>
+                    
 
 
+        </form>
+        <button class="btn1" (click)="scorePrev(1)">Previous</button>
+                    <button class="btn1" (click)="scoreNext(3)">Next</button>
         </mat-tab>
+    
 
 
 
 
 
 
-        <mat-tab disabled label="Upload Picture ">
+        <mat-tab label="Upload Picture ">
             <div class="tab-one container">
                 <p>Upload Passport size picture</p>
                 <div>
@@ -121,37 +144,54 @@
                         please compress the img. image size should be less than 1mb
                     </div>
                 </div>
-                <button>Review</button>
+                <button class="btn1" (click)="reviewPrev(2)">Previous</button>
+                <button class="btn1" (click)="reviewFinal(4)">Review</button>
             </div>
         </mat-tab>
 
-        <mat-tab disabled label="Review">
-            <div class="container">
-            <h2>Personal Details - </h2>
+        <mat-tab label="Review">
+            <div class="container1">
+            
+            <div class="personal">
+            <p class="heading-style">Personal Details</p>
             <label>Name: </label> {{ personalData.name }} <br>
             <label>Gender: </label> {{ personalData.gender }} <br>
             <label>Blood Type: </label> {{ personalData.bloodType }} <br>
             <label>Contact Number: </label> {{ personalData.contactNumber }} <br>
+            </div>
 
-            <h2>Current Address -</h2>
+            <div class="border-left-style color-box">
+            <p class="heading-style">Current Address</p>
             <label>Street: </label> {{ addressData.street }} <br>
             <label>Locality: </label> {{ addressData.locality }} <br>
             <label>City: </label> {{ addressData.city }} <br>
             <label>State: </label> {{ addressData.state }} <br>
             <label>Pincode: </label> {{ addressData.pincode }} <br>
-            <label>Country: </label> {{ addressData.country }} <br>
+            <label>Country: </label> {{ addressData.country }} <br> <br>
+            
+            </div>
 
-            <h2>10th and 12th Marks</h2>
+            <div class="color-box">
+            <p class="heading-style">Permanent Address</p>
+            <label>Street: </label> {{ permanentAddressData.street }} <br>
+            <label>Locality: </label> {{ permanentAddressData.locality }} <br>
+            <label>City: </label> {{ permanentAddressData.city }} <br>
+            <label>State: </label> {{ permanentAddressData.state }} <br>
+            <label>Pincode: </label> {{ permanentAddressData.pincode }} <br>
+            <label>Country: </label> {{ permanentAddressData.country }} <br>
+            </div>
+
+            <div class="border-left-style-2">
+            <p class="heading-style ">10th and 12th Marks</p>
             <label>10th Marks: </label> {{ marksData.tenthMarks }} <br>
             <label>12th Marks: </label> {{ marksData.twelfthMarks }} <br>
+            </div>
 
-            <h2>Passport size picture and signature - </h2>
-            <label>Passport size photo</label> <br> <img [src]="pictureData.image" alt="passport size photo"
-                style="width: 200px"> <br>
-            <label>Signature</label> <br> <img [src]="pictureData.imageTwo" alt="signature" style="width: 200px"> <br>
-
-            <button (click)="finalSubmit()" >Submit</button>
+            
+            
         </div>
+        
+        <button class="btn2" (click)="finalSubmit()" >Submit</button>
         </mat-tab>
     </mat-tab-group>
 </div>

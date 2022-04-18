@@ -4,6 +4,7 @@ const enrollSchema = new mongoose.Schema({
     courseId: mongoose.Types.ObjectId,
     personalDetail: Object,
     addressData: Object,
+    permanentAddressData: Object,
     marksData: Object,
     pictureDetails: Object
 })

@@ -1,3 +1,4 @@
+
 .main-heading {
     font-size: 20px;
     color: black;
@@ -12,8 +13,65 @@
     border-bottom: 2px solid rgb(53, 191, 255);
     
 }
-
 .tab-one {
     margin-top: 50px;
     padding-left: 40%;
+}
+
+.btn1 {
+    background-color: white;
+    color: rgb(53, 191, 255);
+    align-items: center;
+}
+
+.btn2 {
+    background-color: white;
+    color: maroon;
+    font-size: large;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 50%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    margin-bottom: 80px;
+    
+}
+
+.heading-style {
+    font-size: 1.5rem;
+    font-style: normal;
+    margin-top: 20px;
+    color: maroon;
+}
+
+.container1 {
+    font-style: italic;
+    padding-left: 200px;
+    margin-top: 50px;
+    padding-right: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.border-left-style {
+    border-left: 3px solid black;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    border-bottom: 5px solid black;
+    margin-bottom: 6px;
+}
+
+.border-left-style-2 {
+    border-left: 3px solid maroon;
+    padding-left: 20px;
+}
+
+.personal {
+    border-bottom: 5px solid maroon;
+}
+
+.color-btn {
+    color: black;
 }
