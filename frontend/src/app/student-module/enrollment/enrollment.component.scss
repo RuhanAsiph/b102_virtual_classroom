@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 .main-heading {
     font-size: 20px;
     color: black;
@@ -20,8 +20,13 @@
 
 .btn1 {
     background-color: white;
-    color: rgb(53, 191, 255);
+    color: black;
     align-items: center;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 15px;
 }
 
 .btn2 {
@@ -75,3 +80,25 @@
 .color-btn {
     color: black;
 }
+
+.width-new {
+    
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    
+}
+
+.example-form {
+    
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+.main-content {
+    margin-top: 100px;
+    
+    border: 1px solid black;
+  }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
 .center-custom {
     padding-top: 3%;
     padding-left: 3%;
@@ -24,3 +26,27 @@
     margin-top: 350px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.grid-item {
+    padding: 100px;
+    background-color: azure;
+    border-right: 2px solid black;
+
+}
+
+footer {
+    position: fixed;
+    padding-top: 15px;
+    
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Baloo 2', cursive;
+    background-color: black;
+    color: lightblue;
+    text-align: center;
+ }

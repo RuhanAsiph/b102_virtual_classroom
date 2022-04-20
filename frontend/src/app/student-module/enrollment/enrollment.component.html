@@ -3,37 +3,56 @@
     <mat-tab-group  mat-align-tabs="center">
          
         <mat-tab label="Personal Details">
-            <div >
+            <div class="main-content" >
             <mat-card>
             <div>
 
                 
-                <form #personalDetailsForm="ngForm" fxLayoutAlign="stretch" fxLayout="column">
-                    
-                    <label>Name</label> <input required [ngModelOptions]="{standalone: true}" type="text" name="personalName" #name="ngModel" 
-                        [(ngModel)]="personalData.name"  [ngModelOptions]="{standalone: false}" placeholder="Enter your name" ngModel> 
-                    
-                    
-                    <br>
-                    <div *ngIf="name.invalid && (name.dirty || name.touched || personalDetailsForm.submitted )" class="alert">
-                        <div *ngIf="name.errors?.['required']">
-                            <div class="err-style">Name is required. </div> 
-                        </div> 
+                <form class="" #personalDetailsForm="ngForm" fxLayoutAlign="stretch" fxLayout="column">
+
+
+                    <div class="">
+                        <div class="row">
+                    <div class="col-4">
+                    <mat-form-field class="example-full-width width-new" >
+                        <input matInput required [ngModelOptions]="{standalone: true}" type="text" name="personalName" #name="ngModel" 
+                           [(ngModel)]="personalData.name"  [ngModelOptions]="{standalone: false}" placeholder="Enter your name" ngModel> 
+                       
+                       
+                       
+                       <div *ngIf="name.invalid && (name.dirty || name.touched || personalDetailsForm.submitted )" class="text-danger">
+                           <div *ngIf="name.errors?.['required']">
+                               <div class="err-style">Name is required. </div> 
+                           </div> 
+                       </div>
+
+                       </mat-form-field>
                     </div>
-                  
-                    <label>Gender</label> <input  [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="personalData.gender" placeholder="Enter your gender"> 
-                   
-                    <br>
-                   
-                    <label>Blood Type</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                    <div class="col-2">
+                       <mat-form-field class="example-full-width width-new">
+                       <input matInput required [ngModelOptions]="{standalone: true}" type="text"
+                           [(ngModel)]="personalData.gender" placeholder="Enter your gender"> 
+                       </mat-form-field>
+                       
+                      
+                          
+                      </div>    
+                        </div>
+                      </div>
+                      <div class="col-8">
+                      <mat-form-field class="example-full-width width-new">
+                        <input matInput [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="personalData.bloodType" placeholder="Enter your blood type"> 
+                        </mat-form-field>
+                    </div>
+                       
+                    
                    
-                    <br>
+                    <mat-form-field class="example-full-width width-new">
                   
-                    <label>Contact Number</label> <input [ngModelOptions]="{standalone: true}" type="text"
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
                         [(ngModel)]="personalData.contactNumber" placeholder="Enter your contact no.">
-                    <br>
+                    </mat-form-field>
                     
                 </form>
                 <button class="btn1" (click)="personalDetailsNext(1)">Next</button>
@@ -47,7 +66,7 @@
 
 
 
-        <mat-tab label="Address">
+        <mat-tab [disabled]="personalDetailsForm.invalid" label="Address">
             <div >
                 <p>Curent Address</p>
                 <form fxLayoutAlign="stretch" fxLayout="column">
