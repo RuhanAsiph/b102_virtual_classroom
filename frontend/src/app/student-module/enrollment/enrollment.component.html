@@ -67,48 +67,83 @@
 
 
         <mat-tab [disabled]="personalDetailsForm.invalid" label="Address">
-            <div >
+            <div class="add-flex" >
+                <div class="add-flex-1">
                 <p>Curent Address</p>
                 <form fxLayoutAlign="stretch" fxLayout="column">
 
-                    <label>Street name:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.street" placeholder="Enter your Street name"> <br>
-                    <label>Locality:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.locality" placeholder="Enter your locality"> <br>
-                    <label>City: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.city" placeholder="Enter your city"> <br>
-                    <label> State or Union Territory: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.state" placeholder="Enter your state"> <br>
-                    <label> Pincode: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.pincode" placeholder="Enter your Pin Code"> <br>
-                    <label>Country: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="addressData.country" placeholder="Enter your Country">
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.street" placeholder="Street name"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.locality" placeholder="Locality"> <br>
+                   <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.city" placeholder="City"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.state" placeholder="State"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.pincode" placeholder="City pincode"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="addressData.country" placeholder="Country">
 
                 </form>
+                 
                 <br>
+               
+                <!-- <button *ngIf="notSame" class="btn1 color-btn" (click)="same()">Click if permanent address is same as current address!</button> -->
+                <mat-checkbox class="example-margin" [(ngModel)]="notSame">Is your current address same as the permanent one?</mat-checkbox>
+                     <br>
+                     <br>
+                <div *ngIf="!notSame">
+                <p>Permanent Address</p>
+                <form fxLayoutAlign="stretch" fxLayout="column">
 
-                <button *ngIf="notSame" class="btn1 color-btn" (click)="same()">Click if permanent address is same as current address!</button>
-                <form *ngIf="notSame"fxLayoutAlign="stretch" fxLayout="column">
-                    
-                    
-                    
-                    <label>Street name:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.street" placeholder="Enter your Street name"> <br>
-                    <label>Locality:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.locality" placeholder="Enter your locality"> <br>
-                    <label>City: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.city" placeholder="Enter your city"> <br>
-                    <label> State or Union Territory: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.state" placeholder="Enter your state"> <br>
-                    <label> Pincode: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.pincode" placeholder="Enter your Pin Code"> <br>
-                    <label>Country: </label> <input [ngModelOptions]="{standalone: true}" type="text"
-                        [(ngModel)]="permanentAddressData.country" placeholder="Enter your Country">
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.street" placeholder="Street name"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.locality" placeholder="Locality"> <br>
+                   <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.city" placeholder="City"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.state" placeholder="State"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.pincode" placeholder="City pincode"> <br>
+                    <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                        [(ngModel)]="permanentAddressData.country" placeholder="Country">
+
                 </form>
-                
-                <button class="btn1" (click)="addressNext(0)">Previous</button>
-                <button class="btn1" (click)="addressNext(2)">Next</button>
+                </div>
+                <div *ngIf="notSame">
+                    <p>Permanent Address</p>
+                    <form fxLayoutAlign="stretch" fxLayout="column">
+    
+                        <input disabled matInput  type="text"
+                           value={{addressData.street}} placeholder="Street name"> <br>
+                        <input disabled matInput  type="text"
+                            value={{addressData.locality}} placeholder="Locality"> <br>
+                       <input disabled matInput  type="text"
+                           value={{addressData.city}} placeholder="City"> <br>
+                        <input disabled matInput type="text"
+                            value={{addressData.state}} placeholder="State"> <br>
+                        <input disabled matInput  type="text"
+                            value={{addressData.pincode}} placeholder="City pincode"> <br>
+                        <input disabled matInput  type="text"
+                            value={{addressData.country}} placeholder="Country">
+    
+                    </form>
+                    </div>
+            <br>
+            <button class="btn1" (click)="addressNext(0)">Previous</button>
+            <button class="btn1" (click)="addressNext(2)">Next</button>
             </div>
+            <div class="add-flex-1">
+                
+            </div>
+            <div class="add-flex-1">
+                <img src="../../../assets/british-library-Gw_UOoFk4Wk-unsplash.jpg" placeholder="map" style="width: 350px">
+            </div>
+            
+        </div>
+    
         </mat-tab>
 
 
@@ -116,18 +151,24 @@
 
 
         <mat-tab label="10th and 12th Score Details">
+            <div class="marks">
             <form fxLayoutAlign="stretch" fxLayout="column">
-            
-                <label>10th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                    [(ngModel)]="marksData.tenthMarks" placeholder="Enter your 10th Marks"> <br>
-                <label>12th Marks:</label> <input [ngModelOptions]="{standalone: true}" type="text"
-                    [(ngModel)]="marksData.twelfthMarks" placeholder="Enter your 12th Marks"> <br>
+                <mat-form-field class="example-full-width width-new"> 
+                <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                    [(ngModel)]="marksData.tenthMarks" placeholder="Enter your 10th Marks"> 
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width width-new">
+                <input matInput [ngModelOptions]="{standalone: true}" type="text"
+                    [(ngModel)]="marksData.twelfthMarks" placeholder="Enter your 12th Marks">
+                </mat-form-field>
                     
 
 
         </form>
         <button class="btn1" (click)="scorePrev(1)">Previous</button>
                     <button class="btn1" (click)="scoreNext(3)">Next</button>
+                </div>
         </mat-tab>
     
 
@@ -169,7 +210,7 @@
         </mat-tab>
 
         <mat-tab label="Review">
-            <div class="container1">
+            <div class="container1 review">
             
             <div class="personal">
             <p class="heading-style">Personal Details</p>
@@ -221,3 +262,7 @@
         </mat-tab>
     </mat-tab-group>
 </div>
+
+<footer>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis dicta aut at tenetur quas. Cupiditate est fugit amet nesciunt vitae facere iure aliquam quasi! Ex repellat dolores maxime aliquam voluptatibus?</p>
+  </footer>

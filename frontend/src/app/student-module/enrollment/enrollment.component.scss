@@ -10,7 +10,7 @@
     margin-right: auto;
     padding-bottom: 10px;
     margin-bottom: 30px;
-    border-bottom: 2px solid rgb(53, 191, 255);
+    border-bottom: 2px solid black;
     
 }
 .tab-one {
@@ -54,7 +54,7 @@
 }
 
 .container1 {
-    font-style: italic;
+    font-style: bold;
     padding-left: 200px;
     margin-top: 50px;
     padding-right: auto;
@@ -104,3 +104,40 @@
     
     border: 1px solid black;
   }
+
+.review {
+    
+}
+
+.add-flex {
+    display: flex;
+    
+    justify-content: space-between;
+    margin-top: 50px;
+    border: 2px solid black;
+    padding: 10px;
+   
+}
+.marks {
+    margin-top: 100px;
+    border: 1px solid black;
+    padding: 20px;
+}
+.add-flex-1 img {
+    
+   
+}
+
+
+footer {
+    position: fixed;
+    padding-top: 15px;
+    
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Baloo 2', cursive;
+    background-color: white;
+    color: black;
+    text-align: center;
+ }
