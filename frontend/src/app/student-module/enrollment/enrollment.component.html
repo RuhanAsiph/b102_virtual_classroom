@@ -177,16 +177,18 @@
             <label>Gender: </label> {{ personalData.gender }} <br>
             <label>Blood Type: </label> {{ personalData.bloodType }} <br>
             <label>Contact Number: </label> {{ personalData.contactNumber }} <br>
+            <p class="heading-style ">10th and 12th Marks</p>
+            <label>10th Marks: </label> {{ marksData.tenthMarks }} <br>
+            <label>12th Marks: </label> {{ marksData.twelfthMarks }} <br>
+
             </div>
 
             <div class="border-left-style color-box">
-            <p class="heading-style">Current Address</p>
-            <label>Street: </label> {{ addressData.street }} <br>
-            <label>Locality: </label> {{ addressData.locality }} <br>
-            <label>City: </label> {{ addressData.city }} <br>
-            <label>State: </label> {{ addressData.state }} <br>
-            <label>Pincode: </label> {{ addressData.pincode }} <br>
-            <label>Country: </label> {{ addressData.country }} <br> <br>
+                <p class="heading-style">Image data</p>
+                <label>Passport size photo</label> <br>
+                <img src={{pictureData.image}} style="width: 80px"alt="image" > <br>
+                <label>Signature</label> <br>
+                <img src={{pictureData.imageTwo}} style="width: 80px"alt="image" > <br>
             
             </div>
 
@@ -201,9 +203,14 @@
             </div>
 
             <div class="border-left-style-2">
-            <p class="heading-style ">10th and 12th Marks</p>
-            <label>10th Marks: </label> {{ marksData.tenthMarks }} <br>
-            <label>12th Marks: </label> {{ marksData.twelfthMarks }} <br>
+                <p class="heading-style">Current Address</p>
+            <label>Street: </label> {{ addressData.street }} <br>
+            <label>Locality: </label> {{ addressData.locality }} <br>
+            <label>City: </label> {{ addressData.city }} <br>
+            <label>State: </label> {{ addressData.state }} <br>
+            <label>Pincode: </label> {{ addressData.pincode }} <br>
+            <label>Country: </label> {{ addressData.country }} <br> <br>
+            
             </div>
 
             
