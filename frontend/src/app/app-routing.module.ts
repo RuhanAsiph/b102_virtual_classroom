@@ -17,7 +17,8 @@ const routes: Routes = [
   {path: 'course-content', component: CourseContentComponent},
   {path: 'student', component: MainViewComponent},
   {path: 'student-detail', component: DetailPageComponent},
-  {path: 'enrollment', component: EnrollmentComponent}
+  {path: 'enrollment', component: EnrollmentComponent},
+
 ];
 
 @NgModule({

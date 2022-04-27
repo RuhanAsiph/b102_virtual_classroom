@@ -69,7 +69,7 @@
         <mat-tab [disabled]="personalDetailsForm.invalid" label="Address">
             <div class="add-flex" >
                 <div class="add-flex-1">
-                <p>Curent Address</p>
+                <p class="address">Curent Address</p>
                 <form fxLayoutAlign="stretch" fxLayout="column">
 
                     <input matInput [ngModelOptions]="{standalone: true}" type="text"
@@ -94,7 +94,7 @@
                      <br>
                      <br>
                 <div *ngIf="!notSame">
-                <p>Permanent Address</p>
+                <p class="address">Permanent Address</p>
                 <form fxLayoutAlign="stretch" fxLayout="column">
 
                     <input matInput [ngModelOptions]="{standalone: true}" type="text"
@@ -113,7 +113,7 @@
                 </form>
                 </div>
                 <div *ngIf="notSame">
-                    <p>Permanent Address</p>
+                    <p class="address">Permanent Address</p>
                     <form fxLayoutAlign="stretch" fxLayout="column">
     
                         <input disabled matInput  type="text"
@@ -132,7 +132,7 @@
                     </form>
                     </div>
             <br>
-            <button class="btn1" (click)="addressNext(0)">Previous</button>
+            <button class="btn1-prev" (click)="addressNext(0)">Previous</button>
             <button class="btn1" (click)="addressNext(2)">Next</button>
             </div>
             <div class="add-flex-1">
@@ -166,7 +166,7 @@
 
 
         </form>
-        <button class="btn1" (click)="scorePrev(1)">Previous</button>
+        <button class="btn1-prev" (click)="scorePrev(1)">Previous</button>
                     <button class="btn1" (click)="scoreNext(3)">Next</button>
                 </div>
         </mat-tab>
@@ -204,7 +204,7 @@
                         please compress the img. image size should be less than 1mb
                     </div>
                 </div>
-                <button class="btn1" (click)="reviewPrev(2)">Previous</button>
+                <button class="btn1-prev" (click)="reviewPrev(2)">Previous</button>
                 <button class="btn1" (click)="reviewFinal(4)">Review</button>
             </div>
         </mat-tab>
@@ -225,15 +225,16 @@
             </div>
 
             <div class="border-left-style color-box">
-                <p class="heading-style">Image data</p>
-                <label>Passport size photo</label> <br>
-                <img src={{pictureData.image}} style="width: 80px"alt="image" > <br>
-                <label>Signature</label> <br>
-                <img src={{pictureData.imageTwo}} style="width: 80px"alt="image" > <br>
+                
+                <!-- <label>Passport size photo</label> <br> -->
+                <img src={{pictureData.image}} style="width: 200px"alt="profile" > <br>
+                <!-- <label>Signature</label> <br> -->
+                
+                <img src={{pictureData.imageTwo}} style="width: 200px; height: 50px;"alt="signature" > <br>
             
             </div>
 
-            <div class="color-box">
+            <!-- <div class="color-box">
             <p class="heading-style">Permanent Address</p>
             <label>Street: </label> {{ permanentAddressData.street }} <br>
             <label>Locality: </label> {{ permanentAddressData.locality }} <br>
@@ -241,7 +242,7 @@
             <label>State: </label> {{ permanentAddressData.state }} <br>
             <label>Pincode: </label> {{ permanentAddressData.pincode }} <br>
             <label>Country: </label> {{ permanentAddressData.country }} <br>
-            </div>
+            </div> -->
 
             <div class="border-left-style-2">
                 <p class="heading-style">Current Address</p>

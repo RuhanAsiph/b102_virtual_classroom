@@ -47,6 +47,27 @@ exports.enrollDetails = (req, res) => {
 
 }
 
+exports.getSearchKeyResults = (req, res) => {
+    key = req.params.searchKey
+    Course.find({ 
+        "$or":[
+            {
+                name:{$regex: key}
+            }
+        ]
+    }, (err, data) => {
+        if (data) {
+            res.json({
+                status: 200,
+                data: data
+            })
+            
+        } else {
+            res.send(err)
+        }
+    })
+}
+
 exports.getStudentDetails = (req, res) => {
     id = req.params.id
     Course.aggregate(

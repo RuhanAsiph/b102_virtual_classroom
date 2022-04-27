@@ -19,8 +19,22 @@
 }
 
 .btn1 {
-    background-color: white;
-    color: black;
+    background-color: #047aed;
+    color: white;
+    
+    align-items: center;
+    
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 15px;
+    
+}
+
+.btn1-prev {
+    background-color: #ff5252;
+    color: white;
+    
     align-items: center;
     
     padding-left: 30px;
@@ -81,6 +95,7 @@
 
 .color-btn {
     color: black;
+ 
 }
 
 .width-new {
@@ -140,4 +155,8 @@ footer {
     background-color: white;
     color: black;
     text-align: center;
+ }
+
+ .address {
+     border-bottom: 1px solid black;
  }

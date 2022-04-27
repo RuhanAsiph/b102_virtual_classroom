@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class MainViewComponent implements OnInit {
 
+  searchKey: any;
   courses: any = []
   id: any;
   constructor(private authService:AuthService, private router:Router, private activatedRoute:ActivatedRoute) { 
@@ -19,7 +20,7 @@ export class MainViewComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getCourses()
+    this.getCourses();
   }
 
 
@@ -29,6 +30,22 @@ export class MainViewComponent implements OnInit {
         this.courses = res.data
       } else {
         console.log("inside main-view ts get courses function")
+      }
+    })
+  }
+
+  getSearchResults(){
+    // const navigationExtras: NavigationExtras = {
+    //   queryParams: {
+    //     searchKey: this.searchKey
+    //   }
+    // }
+    // this.router.navigate(['student'], navigationExtras)
+    this.authService.getSearchKeyResults(this.searchKey).subscribe(( res: any) => {
+      if (res.status === 200){
+        this.courses = res.data
+      } else {
+        console.log("inside main-view ts getSearchResults func")
       }
     })
   }

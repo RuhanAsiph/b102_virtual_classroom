@@ -7,5 +7,6 @@ const studentController = require('../controllers/studentController')
 router.get('/get-courses', studentController.getStudentCourses)
 router.get('/get-details/:id', studentController.getStudentDetails)
 router.post('/enroll-details', studentController.enrollDetails)
+router.get('/get-search-results/:searchKey', studentController.getSearchKeyResults)
 
 module.exports = router;

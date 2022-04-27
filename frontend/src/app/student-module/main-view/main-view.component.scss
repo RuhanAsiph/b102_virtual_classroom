@@ -33,8 +33,7 @@
 
 .grid-item {
     padding: 100px;
-    background-color: azure;
-    border-right: 2px solid black;
+
 
 }
 
@@ -49,4 +48,9 @@ footer {
     background-color: black;
     color: lightblue;
     text-align: center;
+ }
+
+ .heading-and-search h1 {
+    text-align: center;
+    padding-top: 10px;
  }

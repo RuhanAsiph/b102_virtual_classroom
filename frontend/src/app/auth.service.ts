@@ -62,4 +62,9 @@ export class AuthService {
   sendEnrollmentDetailsOfTheStudent(dataModel: any) {
     return this.http.post(`${this.server}/student/enroll-details`, dataModel)
   }
+
+  //search functionality for course retrieval
+  getSearchKeyResults(searchKey: any){
+    return this.http.get(`${this.server}/student/get-search-results/${searchKey}`)
+  }
 }

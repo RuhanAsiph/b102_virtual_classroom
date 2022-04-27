@@ -1,3 +1,9 @@
+<div class="heading-and-search">
+  <!-- input bind with searchTerm( ngModel) 2 on click call function searchCOurse()-->
+  <input type="text" name="searchText" [(ngModel)]="searchKey" > <button type="submit" (click)="getSearchResults()">Search</button>
+</div>
+
+
 <div class="grid-container">
   <div *ngFor="let course of courses" class="grid-item">
     <div class="card flex-container" style="width: 500px;" >
